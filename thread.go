@@ -21,18 +21,18 @@ type ToolResource struct {
 }
 
 type Thread struct {
-	ID            string          `json:"id"`
-	Object        string          `json:"object"`
-	CreatedAt     int64           `json:"created_at"`
-	Metadata      map[string]any  `json:"metadata"`
-	Tools         []AssistantTool `json:"tools"`
-	ToolResources ToolResource    `json:"tool_resources"`
+	ID        string         `json:"id"`
+	Object    string         `json:"object"`
+	CreatedAt int64          `json:"created_at"`
+	Metadata  map[string]any `json:"metadata"`
 	httpHeader
 }
 
 type ThreadRequest struct {
-	Messages []ThreadMessage `json:"messages,omitempty"`
-	Metadata map[string]any  `json:"metadata,omitempty"`
+	Messages      []ThreadMessage `json:"messages,omitempty"`
+	Metadata      map[string]any  `json:"metadata,omitempty"`
+	Tools         []AssistantTool `json:"tools"`
+	ToolResources ToolResource    `json:"tool_resources"`
 }
 
 type ModifyThreadRequest struct {
