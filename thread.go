@@ -9,12 +9,24 @@ const (
 	threadsSuffix = "/threads"
 )
 
-type Thread struct {
-	ID        string         `json:"id"`
-	Object    string         `json:"object"`
-	CreatedAt int64          `json:"created_at"`
-	Metadata  map[string]any `json:"metadata"`
+type FileSearchResource struct {
+	VectorStoreIds []string `json:"vector_store_ids"`
+}
+type FileIdResource struct {
+	FileIds []string `json:"file_ids"`
+}
+type ToolResource struct {
+	FileSearch      FileSearchResource `json:"file_search"`
+	CodeInterpreter FileIdResource     `json:"code_interpreter"`
+}
 
+type Thread struct {
+	ID            string          `json:"id"`
+	Object        string          `json:"object"`
+	CreatedAt     int64           `json:"created_at"`
+	Metadata      map[string]any  `json:"metadata"`
+	Tools         []AssistantTool `json:"tools"`
+	ToolResources ToolResource    `json:"tool_resources"`
 	httpHeader
 }
 
