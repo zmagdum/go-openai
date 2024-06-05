@@ -17,11 +17,11 @@ type FileSearchResource struct {
 	VectorStoreIds []string `json:"vector_store_ids"`
 }
 type FileIdResource struct {
-	FileIds []string `json:"file_ids"`
+	FileIds []string `json:"file_ids,omitempty"`
 }
 type ToolResource struct {
-	FileSearch      FileSearchResource `json:"file_search"`
-	CodeInterpreter FileIdResource     `json:"code_interpreter"`
+	FileSearch      FileSearchResource `json:"file_search,omitempty"`
+	CodeInterpreter FileIdResource     `json:"code_interpreter,omitempty"`
 }
 
 type Assistant struct {
