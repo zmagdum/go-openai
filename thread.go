@@ -20,8 +20,8 @@ type Thread struct {
 type ThreadRequest struct {
 	Messages      []ThreadMessage `json:"messages,omitempty"`
 	Metadata      map[string]any  `json:"metadata,omitempty"`
-	Tools         []AssistantTool `json:"tools"`
-	ToolResources ToolResource    `json:"tool_resources"`
+	Tools         []AssistantTool `json:"tools,omitempty"`
+	ToolResources ToolResource    `json:"tool_resources,omitempty"`
 }
 
 type ModifyThreadRequest struct {
